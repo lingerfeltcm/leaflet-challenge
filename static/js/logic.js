@@ -52,13 +52,13 @@ function createMap(earthquakes) {
     let baseMap = {"Street Map": streetMap, "Topographic Map": topography};
     let overlay = {Earthquakes: earthquakes};
     let myMap = L.map("map", {center: [0,0], zoom: 2.0, layers: [streetMap, earthquakes]});
-    let mapLegend = L.control({position:"bottomleft"});
+    let mapLegend = L.control({position:"bottomLeft"});
         mapLegend.onAdd = function() {let div = L.DomUtil.create("div", "info legend")
         let depth = [50, 100, 150, 200, 250]};
         let labels = [];
         div.innerHTML += "<h3 style = 'text-align: center'> Depth</h3>"
         for(var i = 0; i < depth.length; i++) {
-            div. innerHTML += '<i style = "background color:' + markerColour(depth[i]+1) + '>&nbsp&nbsp&nbsp&nbsp</i> ' + depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
+            div. innerHTML += '<i style = "background color:' + color(depth[i]+1) + '></i> ' + depth[i] + (depth[i + 1] ? ';' + depth[i + 1] + '<br>' : '+');
         }
         return div;
     mapLegend.addTo(myMap);
